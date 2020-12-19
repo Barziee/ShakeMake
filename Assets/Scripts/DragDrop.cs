@@ -11,7 +11,7 @@ public class DragDrop : MonoBehaviour
     private Vector3 curPosition;
     private Vector3 curScreenPoint;
 
-    private float speed = 25f;
+    [SerializeField] private float speed = 25f;
     private float hor;
     private float ver;
 
@@ -28,6 +28,7 @@ public class DragDrop : MonoBehaviour
 
     void OnMouseDown()
     {
+        Debug.Log("Fruit Picked");
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
     }
@@ -41,6 +42,7 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
+        Debug.Log("Fruit Released");
         rb.velocity = new Vector2(hor * speed, ver * speed);
     }
 
