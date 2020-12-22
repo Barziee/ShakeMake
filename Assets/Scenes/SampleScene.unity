@@ -157,12 +157,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &67882509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
 --- !u!1 &87330128
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 6290824646351605475, guid: fe90735e60d83654a9c7742509ef770a,
     type: 3}
+  rb: {fileID: 1870194699}
+  fruitList: []
 --- !u!65 &87330130
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -306,12 +309,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!64 &225804135
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -339,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
 --- !u!1 &232762708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1829371231341652, guid: 426b44a7575f71e479fab4f4e8431989,
@@ -361,12 +365,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!64 &232762713
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -394,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
 --- !u!1 &244530394 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1541859410316496, guid: 4fe5a7bcbee1651418ea031a87ff53e4,
@@ -416,12 +421,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!64 &244530399
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -449,6 +454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
 --- !u!1001 &416550780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1216,12 +1222,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &1024165044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,6 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
 --- !u!1001 &1073382444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1513,19 +1520,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1673154979}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1515825867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515825866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69134d325bfa19d4cac21533ea2d1c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 25
 --- !u!54 &1515825868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1577,25 +1571,13 @@ MonoBehaviour:
   juiceSpawnPoint: {fileID: 998153189}
   fluidCube: {fileID: 4570110654606405661, guid: 70cbe66659f354d42838dbfa5495eee4,
     type: 3}
+  blend: {fileID: 0}
 --- !u!1 &1533179820 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ae90a67367fb34f8965717b25dc5b0,
     type: 3}
   m_PrefabInstance: {fileID: 416550780}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1533179821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533179820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69134d325bfa19d4cac21533ea2d1c9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 25
 --- !u!54 &1533179822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1647,6 +1629,7 @@ MonoBehaviour:
   juiceSpawnPoint: {fileID: 998153189}
   fluidCube: {fileID: 2531399538074080044, guid: dfe278d7de3e02c4bb73f4ae2b9f0aa1,
     type: 3}
+  blend: {fileID: 0}
 --- !u!1001 &1617743693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1930,12 +1913,12 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 3
 --- !u!114 &1834338483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1949,6 +1932,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
+--- !u!1 &1870194698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6290824646351605477, guid: fe90735e60d83654a9c7742509ef770a,
+    type: 3}
+  m_PrefabInstance: {fileID: 6290824647280809222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1870194699
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870194698}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 0
+--- !u!114 &1870194700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870194698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598f6aa8beb32a54bb4b4bff55f667f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 998153189}
+  blend: {fileID: 87330129}
 --- !u!1001 &1903465579
 PrefabInstance:
   m_ObjectHideFlags: 0

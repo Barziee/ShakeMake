@@ -6,13 +6,12 @@ public class JuiceSpawner : MonoBehaviour
 {
     public Transform juiceSpawnPoint;
     public GameObject fluidCube;
-
+    public Blend blend;
 
     void OnMouseDown()
     {
         StartCoroutine(WaitBetweenCubes());
     }
-
 
     IEnumerator WaitBetweenCubes()
     {
@@ -20,6 +19,7 @@ public class JuiceSpawner : MonoBehaviour
         {
             var instance = Instantiate(fluidCube, juiceSpawnPoint);
             instance.transform.localPosition = Vector3.zero;
+            blend.fruitList.Add(instance.transform);
             yield return new WaitForSeconds(0.2f);
         }
     }

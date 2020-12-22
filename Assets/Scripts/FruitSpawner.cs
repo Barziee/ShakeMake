@@ -6,13 +6,15 @@ public class FruitSpawner : MonoBehaviour
 {
 
     public Transform spawnPoint;
-    
+    public Blend blend;
 
     void OnMouseDown()
     {
         var instance = Instantiate(this.gameObject, spawnPoint);
         instance.transform.localPosition = Vector3.zero;
+        blend.fruitList.Add(instance.transform);
 
+        Debug.Log("Fruit added");
     }
 
 
