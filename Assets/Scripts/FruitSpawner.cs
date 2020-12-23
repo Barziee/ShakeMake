@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FruitSpawner : MonoBehaviour
 {
-
     public Transform spawnPoint;
     public Blend blend;
 
