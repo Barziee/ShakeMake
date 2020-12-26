@@ -19,7 +19,7 @@ public class JuiceSpawner : MonoBehaviour
         {
             var instance = Instantiate(fluidCube, juiceSpawnPoint);
             instance.transform.localPosition = Vector3.zero;
-            blend.fruitList.Add(instance.transform);
+            blend.fruitListBlend.Add(instance.transform);
             yield return new WaitForSeconds(0.2f);
         }
     }

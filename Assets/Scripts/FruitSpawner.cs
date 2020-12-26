@@ -11,7 +11,7 @@ public class FruitSpawner : MonoBehaviour
     {
         var instance = Instantiate(this.gameObject, spawnPoint);
         instance.transform.localPosition = Vector3.zero;
-        blend.fruitList.Add(instance.transform);
+        blend.fruitListBlend.Add(instance.transform);
 
         Debug.Log("Fruit added");
     }
