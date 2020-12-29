@@ -6,6 +6,7 @@ public class OrderCheckScript : MonoBehaviour
 {
     public OrderScript orderSC;
     public Blend blendSC;
+    public ParticleSystem partSys;
     private bool correctOrderBool;
 
     private void Update()
@@ -42,7 +43,7 @@ public class OrderCheckScript : MonoBehaviour
             if (countCorrect == 3)
             {
                 Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
-
+                partSys.Play();
             }
             else if (countCorrect < 3)
             {
