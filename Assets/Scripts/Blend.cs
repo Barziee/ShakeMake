@@ -7,18 +7,17 @@ public class Blend : MonoBehaviour
 {
     [Header("Public Cached References")]
     public Transform spawnPoint;
+    public GameObject blenderTopGO;
+    public GameObject shakeParticlesGO;
     public Rigidbody rb;
 
     [Header("Fruit List In Blender")]
     public List<Transform> fruitListBlend = new List<Transform>();
 
-    [Header("Shake Spawn Variables")]
-    public int numOfDrops;
-    public float dropsSpawnOffset;
-
     private void OnMouseDown()
     {
-
+        blenderTopGO.SetActive(true);
+        shakeParticlesGO.SetActive(true);
 
         Debug.Log(fruitListBlend.Count);
         for (var i = 0; i < fruitListBlend.Count; i++)

@@ -19,15 +19,22 @@ public class OrderScript : MonoBehaviour
     public GameObject Orange1;
 
     [Header("Order Bubble Chached References")]
-    public Transform ingredientHolder;
-    public float spawnOffset = 0.2f;
-    public float eulerRot;
     public GameObject milkCartonPre;
     public GameObject juiceCartonPre;
+    public Transform fruitSpawnerGO;
+    public List<Transform> ingredientHolder;
 
-    [Header("~ Current Order List ~")]
+    [Header("Order Bubble Spawn Variables")]
+    public float spawnOffset = 0.2f;
+    public float eulerRot;
+
+    [Header("~ Order Lists ~")]
     public List<GameObject> orderList0 = new List<GameObject>();
+    public List<GameObject> orderList1 = new List<GameObject>();
+    public List<GameObject> orderList2 = new List<GameObject>();
 
+    private List<GameObject>[] ordersArray = new List<GameObject>[3];
+    private List<GameObject> currentList;
     private GameObject currentFruitToDraw;
 
     void Start()
@@ -42,88 +49,109 @@ public class OrderScript : MonoBehaviour
         fluidList.Add(Milk0);
         fluidList.Add(Orange1);
 
-        SetOrder();
+        ordersArray[0] = orderList0;
+        ordersArray[1] = orderList1;
+        ordersArray[2] = orderList2;
+
+        for (int x = 0; x < ordersArray.Length; x++)
+        {
+            currentList = ordersArray[x];
+
+            SetOrder(currentList);
+
+        }
 
     }
 
-    public void SetOrder()
+    public void SetOrder(List<GameObject> list)
     {
-        orderList0.Clear();
-
         for (int i = 0; i < 3; i++)
         {
 
             var tmpFruit = Random.Range(0, 6);
-            orderList0.Add(fruitList[tmpFruit]);
+            list.Add(fruitList[tmpFruit]);
 
         }
 
         var tmpFluid = Random.Range(0, 2);
-        orderList0.Add(fluidList[tmpFluid]);
+        list.Add(fluidList[tmpFluid]);
 
-        SetOrderBubble();
+        SetOrderBubble(currentList);
 
     }
 
-    private void SetOrderBubble()
+    private void SetOrderBubble(List<GameObject> list)
     {
-        foreach (Transform child in ingredientHolder)
+        Debug.Log("~~~ LIST NAME: " + list.ToString() + " ~~~");
+        Debug.Log(list[0].ToString());
+        Debug.Log(list[1].ToString());
+        Debug.Log(list[2].ToString());
+        Debug.Log(list[3].ToString());
+
+        if (list == orderList0)
         {
-            Destroy(child.gameObject);
+            CheckWhichFruitToSpawn(list, ingredientHolder[0]);
+
+        }
+        else if (list == orderList1)
+        {
+            CheckWhichFruitToSpawn(list, ingredientHolder[1]);
+
+        }
+        else if (list == orderList2)
+        {
+            CheckWhichFruitToSpawn(list, ingredientHolder[2]);
 
         }
 
-        Debug.Log("~~~ LIST ONE ~~~");
-        Debug.Log(orderList0[0].ToString());
-        Debug.Log(orderList0[1].ToString());
-        Debug.Log(orderList0[2].ToString());
-        Debug.Log(orderList0[3].ToString());
+    }
 
-        for (int i = 0; i < orderList0.Count; i++)
+    private void CheckWhichFruitToSpawn(List<GameObject> list, Transform ingredient)
+    {
+        for (int i = 0; i < list.Count; i++)
         {
             // If Fruits.
             if (i <= 2)
             {
                 // This GameObject holds the correct fruit from the order list.
-                currentFruitToDraw = orderList0[i].gameObject;
+                currentFruitToDraw = list[i].gameObject;
 
-                InstantiateObjectForOrder(i);
+                InstantiateObjectForOrder(i, ingredient);
 
             }
             // If Fluids.
             if (i == 3)
             {
                 // If MilkCube, instantiate milk carton prefab.
-                if (orderList0[3].name == "MilkCube")
+                if (list[3].name == "MilkCube")
                 {
                     currentFruitToDraw = milkCartonPre;
 
-                    InstantiateObjectForOrder(i);
+                    InstantiateObjectForOrder(i, ingredient);
 
                 }
 
                 // If JuiceCube, instantiate juice carton prefab.
-                if (orderList0[3].name == "JuiceCube")
+                if (list[3].name == "JuiceCube")
                 {
                     currentFruitToDraw = juiceCartonPre;
 
-                    InstantiateObjectForOrder(i);
+                    InstantiateObjectForOrder(i, ingredient);
 
                 }
 
             }
 
         }
-
     }
 
-    private void InstantiateObjectForOrder(int i)
+    private void InstantiateObjectForOrder(int i, Transform ingredient)
     {
         // Intantiate the correct fruit, in the future parent's position.
-        var instance = Instantiate(currentFruitToDraw, ingredientHolder.position, Quaternion.identity);
+        var instance = Instantiate(currentFruitToDraw, ingredient.position, Quaternion.identity);
 
         // Set instance parent.
-        instance.transform.SetParent(ingredientHolder);
+        instance.transform.SetParent(ingredient);
 
         // Manage the physics for the object (turn all physics off).
         instance.GetComponent<Collider>().enabled = false;
@@ -133,5 +161,7 @@ public class OrderScript : MonoBehaviour
         // Set the correct position to the object, multiplied by 'for' loop itaretion.
         instance.GetComponent<Transform>().localPosition = new Vector3(spawnOffset * i, 0f, 0f);
         instance.GetComponent<Transform>().localRotation = Quaternion.Euler(eulerRot, 0f, 0f);
+
     }
+
 }

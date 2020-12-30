@@ -10,6 +10,8 @@ TagManager:
   - Peach
   - Banana
   - Cherry
+  - JuiceCube
+  - MilkCube
   layers:
   - Default
   - TransparentFX
