@@ -4,32 +4,25 @@ using UnityEngine;
 
 public class OrderCheckScript : MonoBehaviour
 {
+    [Header("Public Cached References")]
     public OrderScript orderSC;
     public Blend blendSC;
     public ParticleSystem partSys;
-    private bool correctOrderBool;
+    public GameObject correctGO;
+    public GameObject incorrectGO;
+
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CheckOrder();
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            blendSC.fruitListBlend.Clear();
-
-        }
 
     }
 
-    private void CheckOrder()
+    public void CheckOrder(List<GameObject> list)
     {
         var countCorrect = 0;
+        var countIncorrect = 0;
 
-        for (int x = 0; x < orderSC.orderList0.Count; x++)
+        for (int x = 0; x < list.Count; x++)
         {
             if (blendSC.fruitListBlend.Count < 3)
             {
@@ -38,7 +31,7 @@ public class OrderCheckScript : MonoBehaviour
             }
             else if (blendSC.fruitListBlend.Count >= 3)
             {
-                if (orderSC.orderList0[x].tag == blendSC.fruitListBlend[x].tag)
+                if (list[x].tag == blendSC.fruitListBlend[x].tag)
                 {
                     Debug.Log("Correct object in spot num: " + x);
                     countCorrect++;
@@ -57,12 +50,20 @@ public class OrderCheckScript : MonoBehaviour
         if (countCorrect == 4)
         {
             Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
-            partSys.Play();
+            correctGO.SetActive(true);
+            countIncorrect--;
 
         }
         else if (countCorrect < 4)
         {
             Debug.Log("~~~ ORDER WAS UNSECCESFULL ~~~");
+            Debug.Log(countIncorrect);
+
+            if (countIncorrect == -1)
+            {
+                incorrectGO.SetActive(true);
+
+            }
 
         }
 

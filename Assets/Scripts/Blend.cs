@@ -25,12 +25,14 @@ public class Blend : MonoBehaviour
         blenderTopGO.SetActive(true);
         shakeParticlesGO.SetActive(true);
 
-        Debug.Log(fruitListBlend.Count);
+        Debug.Log("" + fruitListBlend.Count.ToString());
+
         for (var i = 0; i < fruitListBlend.Count; i++)
         {
-            fruitListBlend[i].GetComponent<Rigidbody>().isKinematic = true;
             fruitListBlend[i].GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+            fruitListBlend[i].GetComponent<Rigidbody>().isKinematic = true;
             Debug.Log("Fruit added");
+
         }
 
         rb.AddTorque(0f, 9000f, 0f, ForceMode.Force);
@@ -40,7 +42,7 @@ public class Blend : MonoBehaviour
 
         foreach (Transform child in spawnPoint) 
         {
-            Destroy(child.gameObject);
+            child.gameObject.SetActive(false);
 
         }
 

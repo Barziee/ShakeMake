@@ -15,13 +15,14 @@ public class JuiceSpawner : MonoBehaviour
 
     IEnumerator WaitBetweenCubes()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 10; i++)
         {
             var instance = Instantiate(fluidCube, juiceSpawnPoint);
             instance.transform.localPosition = Vector3.zero;
             blend.fruitListBlend.Add(instance.transform);
             yield return new WaitForSeconds(0.2f);
         }
+
     }
 
 }

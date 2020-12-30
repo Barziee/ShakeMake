@@ -33,7 +33,7 @@ public class OrderScript : MonoBehaviour
     public List<GameObject> orderList1 = new List<GameObject>();
     public List<GameObject> orderList2 = new List<GameObject>();
 
-    private List<GameObject>[] ordersArray = new List<GameObject>[3];
+    public List<GameObject>[] ordersArray = new List<GameObject>[3];
     private List<GameObject> currentList;
     private GameObject currentFruitToDraw;
 
