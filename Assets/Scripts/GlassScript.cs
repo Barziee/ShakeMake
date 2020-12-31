@@ -7,7 +7,6 @@ public class GlassScript : MonoBehaviour
     [Header("Public Cached References")]
     public OrderCheckScript orderCheckSC;
     public OrderScript orderSC;
-    public Transform dropShakeHolderGO;
 
     private List<GameObject> currentListCheck;
 

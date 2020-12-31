@@ -6,7 +6,7 @@ using System.Linq;
 public class Blend : MonoBehaviour
 {
     [Header("Public Cached References")]
-    public Transform spawnPoint;
+    public Transform fruitSpawnGO;
     public GameObject blenderTopGO;
     public GameObject shakeParticlesGO;
     public Rigidbody rb;
@@ -40,7 +40,7 @@ public class Blend : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
 
-        foreach (Transform child in spawnPoint) 
+        foreach (Transform child in fruitSpawnGO) 
         {
             child.gameObject.SetActive(false);
 
