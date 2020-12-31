@@ -15,7 +15,7 @@ public class JuiceSpawner : MonoBehaviour
 
     IEnumerator WaitBetweenCubes()
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 15; i++)
         {
             var instance = Instantiate(fluidCube, juiceSpawnPoint);
             instance.transform.localPosition = Vector3.zero;

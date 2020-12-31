@@ -23,6 +23,7 @@ public class OrderScript : MonoBehaviour
     public GameObject juiceCartonPre;
     public Transform fruitSpawnerGO;
     public List<Transform> ingredientHolder;
+    public List<Transform> orderBubbleList;
 
     [Header("Order Bubble Spawn Variables")]
     public float spawnOffset = 0.2f;
@@ -53,11 +54,22 @@ public class OrderScript : MonoBehaviour
         ordersArray[1] = orderList1;
         ordersArray[2] = orderList2;
 
+
+        StartCoroutine(OrderTimingCoroutine());
+
+    }
+
+    private IEnumerator OrderTimingCoroutine()
+    {
         for (int x = 0; x < ordersArray.Length; x++)
         {
             currentList = ordersArray[x];
 
             SetOrder(currentList);
+
+            orderBubbleList[x].gameObject.SetActive(true);
+
+            yield return new WaitForSeconds(3f);
 
         }
 

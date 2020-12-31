@@ -12,18 +12,18 @@ public class OrderCheckScript : MonoBehaviour
     public OrderScript orderSC;
     public Blend blendSC;
 
-    int countCorrect = 1;
+    int countCorrect = 0;
 
-    public void CheckOrder(List<GameObject> list)
+    public void CheckOrder(List<GameObject> list, int orderBubble)
     {
         for (int x = 0; x < list.Count; x++)
         {
-            if (blendSC.fruitListBlend.Count < 3)
+            if (blendSC.fruitListBlend.Count < 4)
             {
                 Debug.Log("~~~ NOT ENOUGH FRUITS ~~~");
 
             }
-            else if (blendSC.fruitListBlend.Count >= 3)
+            else if (blendSC.fruitListBlend.Count >= 4)
             {
                 if (list[x].tag == blendSC.fruitListBlend[x].tag)
                 {
@@ -39,15 +39,18 @@ public class OrderCheckScript : MonoBehaviour
 
             }
 
-
         }
 
-        if (countCorrect >= 3)
+        if (countCorrect > 3)
         {
-            StartCoroutine(CorrectSequance());
+            countCorrect = 0;
+            Debug.Log("~~~ COUNT CORRECT ~~~ " + countCorrect);
+
+            StartCoroutine(CorrectSequance(orderBubble));
 
         }
-        else if (countCorrect < 3)
+
+        else if (countCorrect <= 3)
         {
             Debug.Log("~~~ ORDER WAS UNSECCESFULL ~~~");
             GameManager.numOfCorrectOrdersDelivered++;
@@ -56,10 +59,52 @@ public class OrderCheckScript : MonoBehaviour
 
         if (GameManager.numOfCorrectOrdersDelivered == 3)
         {
-            GameManager.numOfCorrectOrdersDelivered = 0;
             StartCoroutine(IncorrectSequance());
+            GameManager.numOfCorrectOrdersDelivered = 0;
 
         }
+
+        countCorrect = 0;
+
+    }
+
+    private IEnumerator CorrectSequance(int orderBubble)
+    {
+        Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
+
+        correctGO.SetActive(true);
+
+        shakeDropHolderGO.gameObject.SetActive(false);
+
+        foreach (Transform child in shakeDropHolderGO)
+        {
+            child.position = shakeDropHolderGO.position;
+        }
+
+        foreach (Transform child in fruitSpawnGO)
+        {
+            Destroy(child.gameObject);
+
+        }
+
+        orderSC.orderBubbleList[orderBubble].gameObject.SetActive(false);
+
+        foreach (Transform child in orderSC.ingredientHolder[orderBubble])
+        {
+            Destroy(child.gameObject);
+
+        }
+
+        orderSC.ordersArray[orderBubble].Clear();
+        blendSC.fruitListBlend.Clear();
+
+        yield return new WaitForSeconds(1.5f);
+
+        correctGO.SetActive(false);
+
+        GameManager.numOfGameOrdersFinished++;
+
+        GameManager.numOfCorrectOrdersDelivered = 0;
 
     }
 
@@ -88,39 +133,8 @@ public class OrderCheckScript : MonoBehaviour
 
         blendSC.fruitListBlend.Clear();
 
-    }
-
-    private IEnumerator CorrectSequance()
-    {
-        Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
         countCorrect = 0;
         Debug.Log("~~~ COUNT CORRECT ~~~ " + countCorrect);
-
-        correctGO.SetActive(true);
-
-        shakeDropHolderGO.gameObject.SetActive(false);
-
-        foreach (Transform child in shakeDropHolderGO)
-        {
-            child.position = shakeDropHolderGO.position;
-        }
-
-        foreach (Transform child in fruitSpawnGO)
-        {
-            Destroy(child.gameObject);
-
-        }
-
-
-        blendSC.fruitListBlend.Clear();
-
-        yield return new WaitForSeconds(1.5f);
-
-        correctGO.SetActive(false);
-
-        GameManager.numOfGameOrdersFinished++;
-
-        GameManager.numOfCorrectOrdersDelivered = 0;
 
     }
 

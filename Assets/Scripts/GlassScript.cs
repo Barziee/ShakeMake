@@ -16,7 +16,7 @@ public class GlassScript : MonoBehaviour
         {
             currentListCheck = orderSC.ordersArray[i];
 
-            orderCheckSC.CheckOrder(currentListCheck);
+            orderCheckSC.CheckOrder(currentListCheck, i);
 
         }
 
