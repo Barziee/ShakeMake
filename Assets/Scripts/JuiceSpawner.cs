@@ -8,9 +8,16 @@ public class JuiceSpawner : MonoBehaviour
     public GameObject fluidCube;
     public Blend blend;
 
+    public AudioSource pour;
+
+    public AudioManager audioManager;
+
     void OnMouseDown()
     {
         StartCoroutine(WaitBetweenCubes());
+        pour.clip = audioManager.audioClips[1];
+        pour.Play();
+
     }
 
     IEnumerator WaitBetweenCubes()
