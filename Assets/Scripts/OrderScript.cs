@@ -28,6 +28,9 @@ public class OrderScript : MonoBehaviour
     [Header("Order Bubble Spawn Variables")]
     public float spawnOffset = 0.2f;
     public float eulerRot;
+    public float xFruitScale;
+    public float yFruitScale;
+    public float zFruitScale;
 
     [Header("~ Order Lists ~")]
     public List<GameObject> orderList0 = new List<GameObject>();
@@ -173,6 +176,7 @@ public class OrderScript : MonoBehaviour
         // Set the correct position to the object, multiplied by 'for' loop itaretion.
         instance.GetComponent<Transform>().localPosition = new Vector3(spawnOffset * i, 0f, 0f);
         instance.GetComponent<Transform>().localRotation = Quaternion.Euler(eulerRot, 0f, 0f);
+        instance.GetComponent<Transform>().localScale = new Vector3(xFruitScale, yFruitScale, zFruitScale);
 
     }
 
