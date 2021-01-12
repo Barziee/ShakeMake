@@ -3,7 +3,22 @@ guid: 47594682f9062394ba5be0808a88cfc1
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: df529ad9360e8da4b8c9a41557719fd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WindowTint
+    second: {fileID: 2100000, guid: 836300bb44e45e4438e72701446afeae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WoodenFrame
+    second: {fileID: 2100000, guid: 7bb3179bea7fc6f44ac122b8d56c70bb, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
