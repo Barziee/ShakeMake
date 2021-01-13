@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ToonMatGlass
-  m_Shader: {fileID: -6465566751694194690, guid: 7b2d738cac1bbc042bbe5839c79ed414,
+  m_Shader: {fileID: -6465566751694194690, guid: bf9ec92bbf1b60542a6e0e92d2601d14,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -34,12 +34,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_13A3C0ED:
+        m_Texture: {fileID: 2800000, guid: d61bad7062b6bd845bc3513649ae48ca, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_74BF6B54:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a19849dbb3bc03f4280ee880cee932d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_8F45CA93:
         m_Texture: {fileID: 2800000, guid: 33c4b667bb2f9f440a1ab99303446b84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_ED09ED6D:
+        m_Texture: {fileID: 2800000, guid: a19849dbb3bc03f4280ee880cee932d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -48,6 +56,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CalculateLightingRamp_B8C021D2_Texture2D8FFA3EBE_857000322:
+        m_Texture: {fileID: 2800000, guid: 33c4b667bb2f9f440a1ab99303446b84, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -71,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_721B2C5C: 0
+    - Vector1_721B2C5C: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
