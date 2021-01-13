@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ShakeMat
-  m_Shader: {fileID: 4800000, guid: bec21333d7f8cf84cb75cab616acf589, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: eebf2ccca57f79d45b41126d37628f99,
+    type: 3}
   m_ShaderKeywords: _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
@@ -19,6 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_74BF6B54:
+        m_Texture: {fileID: 2800000, guid: 231259ecd4e970d449f2f9ed52266c42, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8F45CA93:
+        m_Texture: {fileID: 2800000, guid: 33c4b667bb2f9f440a1ab99303446b84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
