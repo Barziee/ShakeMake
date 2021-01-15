@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3360604794861748776}
   - component: {fileID: 3648616886247561383}
   - component: {fileID: 3654091435725863742}
-  - component: {fileID: 6239354330532440853}
-  m_Layer: 0
+  - component: {fileID: 4182954290278388085}
+  m_Layer: 10
   m_Name: ShakeDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,15 +89,15 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2793302546564882354}
   serializedVersion: 2
-  m_Mass: 0.1
+  m_Mass: 0.3
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!135 &6239354330532440853
+--- !u!135 &4182954290278388085
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,5 +108,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.50000006
-  m_Center: {x: 0, y: 0, z: 0.00000047683716}
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

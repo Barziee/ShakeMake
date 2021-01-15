@@ -9,8 +9,10 @@ public class OrderCheckScript : MonoBehaviour
     public Transform fruitSpawnGO;
     public GameObject correctGO;
     public GameObject incorrectGO;
+    public GameObject glassTopGO;
     public OrderScript orderSC;
     public Blend blendSC;
+    public Animator glassAnimator;
 
     int countCorrect = 0;
 
@@ -72,7 +74,36 @@ public class OrderCheckScript : MonoBehaviour
     {
         Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
 
+        Debug.Log("Order Bubble To String : " + orderBubble.ToString());
+
+        glassTopGO.SetActive(true);
+
+        switch (orderBubble)
+        {
+            case 0:
+                glassAnimator.SetTrigger("GlassOrder1");
+
+                break;
+
+            case 1:
+                glassAnimator.SetTrigger("GlassOrder2");
+
+                break;
+
+            case 2:
+                glassAnimator.SetTrigger("GlassOrder3");
+
+                break;
+
+        }
+
         correctGO.SetActive(true);
+
+        yield return new WaitForSeconds(1.2f);
+
+        correctGO.SetActive(false);
+
+        yield return new WaitForSeconds(3f);
 
         shakeDropHolderGO.gameObject.SetActive(false);
 
@@ -100,11 +131,11 @@ public class OrderCheckScript : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
 
-        correctGO.SetActive(false);
-
         GameManager.numOfGameOrdersFinished++;
 
         GameManager.numOfCorrectOrdersDelivered = 0;
+
+        glassTopGO.SetActive(false);
 
     }
 
