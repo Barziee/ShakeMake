@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ShakeMat
-  m_Shader: {fileID: -6465566751694194690, guid: eebf2ccca57f79d45b41126d37628f99,
+  m_Shader: {fileID: -6465566751694194690, guid: 0907b59e6ab1b1948af96e4986eddd5d,
     type: 3}
   m_ShaderKeywords: _SPECULARHIGHLIGHTS_OFF
-  m_LightmapFlags: 6
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 93a726948508cc14eab67fb1abe2daa8, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -81,6 +81,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_57227DF3: 5
+    - Vector1_9ABC5DC5: 0.2
+    - Vector1_EDBED5AE: 2
     - _AlphaClip: 0
     - _Blend: 0
     - _BlendOp: 0
@@ -124,6 +127,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_82605C5E: {r: 1, g: 0.6462264, b: 0.8716703, a: 0}
+    - Color_CBBA2203: {r: 1, g: 0.2216981, b: 0.7965224, a: 0}
     - _BaseColor: {r: 0.9528302, g: 0.39101997, b: 0.837357, a: 1}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 0.9528302, g: 0.39101997, b: 0.837357, a: 1}

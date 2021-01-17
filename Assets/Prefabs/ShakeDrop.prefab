@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3360604794861748776}
   - component: {fileID: 3648616886247561383}
   - component: {fileID: 3654091435725863742}
-  - component: {fileID: 4182954290278388085}
+  - component: {fileID: 4391228788390757981}
   m_Layer: 10
   m_Name: ShakeDrop
   m_TagString: Untagged
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2793302546564882354}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.471822, y: 5.931737, z: 0.17689466}
-  m_LocalScale: {x: 0.76, y: 0.76, z: 0.76}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -97,7 +97,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!135 &4182954290278388085
+--- !u!135 &4391228788390757981
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,5 +108,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}

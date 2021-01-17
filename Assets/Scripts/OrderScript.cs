@@ -37,6 +37,7 @@ public class OrderScript : MonoBehaviour
     public List<GameObject> orderList1 = new List<GameObject>();
     public List<GameObject> orderList2 = new List<GameObject>();
 
+    public Animator[] animatorsArray = new Animator[3];
     public List<GameObject>[] ordersArray = new List<GameObject>[3];
     private List<GameObject> currentList;
     private GameObject currentFruitToDraw;
@@ -72,7 +73,23 @@ public class OrderScript : MonoBehaviour
 
             orderBubbleList[x].gameObject.SetActive(true);
 
-            yield return new WaitForSeconds(3f);
+            switch (x)
+            {
+                case 0:
+                    animatorsArray[0].SetTrigger("startProgressBar1");
+                    break;
+
+                case 1:
+                    animatorsArray[1].SetTrigger("startProgressBar2");
+                    break;
+
+                case 2:
+                    animatorsArray[2].SetTrigger("startProgressBar3");
+                    break;
+
+            }
+
+            yield return new WaitForSeconds(Random.Range(25f, 34f)); ;
 
         }
 
@@ -106,7 +123,7 @@ public class OrderScript : MonoBehaviour
         if (list == orderList0)
         {
             CheckWhichFruitToSpawn(list, ingredientHolder[0]);
-
+            
         }
         else if (list == orderList1)
         {
@@ -158,6 +175,7 @@ public class OrderScript : MonoBehaviour
             }
 
         }
+
     }
 
     private void InstantiateObjectForOrder(int i, Transform ingredient)
