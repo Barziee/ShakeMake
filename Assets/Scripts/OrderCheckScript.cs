@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class OrderCheckScript : MonoBehaviour
 {
@@ -33,51 +32,39 @@ public class OrderCheckScript : MonoBehaviour
                 {
                     Debug.Log("Correct object in spot num: " + x);
                     countCorrect++;
-
                 }
                 else
                 {
                     Debug.Log("Incorrect object in spot num: " + x);
-
                 }
-
             }
-
         }
 
         if (countCorrect > 3)
         {
             countCorrect = 0;
             Debug.Log("~~~ COUNT CORRECT ~~~ " + countCorrect);
-
             StartCoroutine(CorrectSequance(orderBubble));
-
         }
 
         else if (countCorrect <= 3)
         {
             Debug.Log("~~~ ORDER WAS UNSECCESFULL ~~~");
             GameManager.numOfCorrectOrdersDelivered++;
-
         }
 
         if (GameManager.numOfCorrectOrdersDelivered == 3)
         {
             StartCoroutine(IncorrectSequance());
             GameManager.numOfCorrectOrdersDelivered = 0;
-
         }
-
         countCorrect = 0;
-
     }
 
     private IEnumerator CorrectSequance(int orderBubble)
     {
         Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
-
         Debug.Log("Order Bubble To String : " + orderBubble.ToString());
-
         glassTopGO.SetActive(true);
 
         switch (orderBubble)
@@ -100,13 +87,9 @@ public class OrderCheckScript : MonoBehaviour
         }
 
         correctGO.SetActive(true);
-
         yield return new WaitForSeconds(1.2f);
-
         correctGO.SetActive(false);
-
         yield return new WaitForSeconds(3f);
-
         shakeDropHolderGO.gameObject.SetActive(false);
 
         foreach (Transform child in shakeDropHolderGO)
@@ -184,7 +167,6 @@ public class OrderCheckScript : MonoBehaviour
 
         countCorrect = 0;
         Debug.Log("~~~ COUNT CORRECT ~~~ " + countCorrect);
-
     }
 
 }

@@ -17,7 +17,6 @@ public class JuiceSpawner : MonoBehaviour
         StartCoroutine(WaitBetweenCubes());
         pour.clip = audioManager.audioClips[1];
         pour.Play();
-
     }
 
     IEnumerator WaitBetweenCubes()
@@ -29,7 +28,5 @@ public class JuiceSpawner : MonoBehaviour
             blend.fruitListBlend.Add(instance.transform);
             yield return new WaitForSeconds(0.2f);
         }
-
     }
-
 }
