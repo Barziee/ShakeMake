@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OrderCheckScript : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class OrderCheckScript : MonoBehaviour
     public OrderScript orderSC;
     public Blend blendSC;
     public Animator glassAnimator;
+    public GameObject[] tubeFillArray = new GameObject[3];
 
     int countCorrect = 0;
 
@@ -132,6 +134,22 @@ public class OrderCheckScript : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         GameManager.numOfGameOrdersFinished++;
+
+        if (GameManager.numOfGameOrdersFinished == 1)
+        {
+            tubeFillArray[0].SetActive(true);
+
+        }
+        else if (GameManager.numOfGameOrdersFinished == 2)
+        {
+            tubeFillArray[1].SetActive(true);
+
+        }
+        else if (GameManager.numOfGameOrdersFinished == 3)
+        {
+            tubeFillArray[2].SetActive(true);
+
+        }
 
         GameManager.numOfCorrectOrdersDelivered = 0;
 
