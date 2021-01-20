@@ -42,6 +42,10 @@ public class OrderScript : MonoBehaviour
     private List<GameObject> currentList;
     private GameObject currentFruitToDraw;
 
+    public AudioSource bloop;
+    public AudioManager audioManager;
+
+
     void Start()
     {
         fruitList.Add(Watermelon0);
@@ -73,6 +77,9 @@ public class OrderScript : MonoBehaviour
 
             orderBubbleList[x].gameObject.SetActive(true);
 
+            bloop.clip = audioManager.audioClips[2];
+            bloop.Play();
+
             switch (x)
             {
                 case 0:
@@ -99,17 +106,14 @@ public class OrderScript : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-
             var tmpFruit = Random.Range(0, 6);
             list.Add(fruitList[tmpFruit]);
-
         }
 
         var tmpFluid = Random.Range(0, 2);
         list.Add(fluidList[tmpFluid]);
 
         SetOrderBubble(currentList);
-
     }
 
     private void SetOrderBubble(List<GameObject> list)
