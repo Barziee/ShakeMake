@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JuiceSpawner : MonoBehaviour
 {
+    public GameManager gmSC;
     public Transform juiceSpawnPoint;
     public GameObject fluidCube;
     public Blend blend;
@@ -14,9 +15,14 @@ public class JuiceSpawner : MonoBehaviour
 
     void OnMouseDown()
     {
-        StartCoroutine(WaitBetweenCubes());
-        pour.clip = audioManager.audioClips[1];
-        pour.Play();
+        if (!gmSC.pouredFluid)
+        {
+            StartCoroutine(WaitBetweenCubes());
+            pour.clip = audioManager.audioClips[1];
+            pour.Play();
+
+        }
+
     }
 
     IEnumerator WaitBetweenCubes()
@@ -27,6 +33,11 @@ public class JuiceSpawner : MonoBehaviour
             instance.transform.localPosition = Vector3.zero;
             blend.fruitListBlend.Add(instance.transform);
             yield return new WaitForSeconds(0.2f);
+
         }
+
+        gmSC.pouredFluid = true;
+
     }
+
 }
