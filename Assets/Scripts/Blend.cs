@@ -15,6 +15,8 @@ public class Blend : MonoBehaviour
     [Header("Fruit List In Blender")]
     public List<Transform> fruitListBlend = new List<Transform>();
 
+    public ParticleSystem dust;
+
 
     private void OnMouseDown()
     {
@@ -26,6 +28,8 @@ public class Blend : MonoBehaviour
     {
         blenderTopGO.SetActive(true);
         shakeParticlesGO.SetActive(true);
+        CreateDust();
+        AudioManager.audioManager.PlaySound(SoundTypes.Blender);
 
         Debug.Log("" + fruitListBlend.Count.ToString());
 
@@ -56,6 +60,11 @@ public class Blend : MonoBehaviour
 
         blenderAnimator.SetTrigger("Pour");
 
+    }
+
+    void CreateDust()
+    {
+        dust.Play();
     }
 
 }

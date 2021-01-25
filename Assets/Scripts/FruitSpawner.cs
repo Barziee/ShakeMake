@@ -9,8 +9,6 @@ public class FruitSpawner : MonoBehaviour
     public Transform spawnPoint;
     public Blend blend;
 
-    public AudioManager audioManager;
-    public AudioSource fruit_tap;
 
 
     void OnMouseDown()
@@ -20,8 +18,7 @@ public class FruitSpawner : MonoBehaviour
             var instance = Instantiate(this.gameObject, spawnPoint);
             instance.transform.localPosition = Vector3.zero;
             blend.fruitListBlend.Add(instance.transform);
-            fruit_tap.clip = audioManager.audioClips[0];
-            fruit_tap.Play();
+            AudioManager.audioManager.PlaySound(SoundTypes.FruitTap);
 
             Debug.Log("Fruit added");
 

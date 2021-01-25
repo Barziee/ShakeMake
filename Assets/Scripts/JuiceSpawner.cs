@@ -9,8 +9,7 @@ public class JuiceSpawner : MonoBehaviour
     public GameObject fluidCube;
     public Blend blend;
 
-    public AudioSource pour;
-    public AudioManager audioManager;
+
 
 
     void OnMouseDown()
@@ -18,8 +17,8 @@ public class JuiceSpawner : MonoBehaviour
         if (!gmSC.pouredFluid)
         {
             StartCoroutine(WaitBetweenCubes());
-            pour.clip = audioManager.audioClips[1];
-            pour.Play();
+            AudioManager.audioManager.PlaySound(SoundTypes.Pouring);
+
 
         }
 

@@ -15,6 +15,12 @@ public class GameManager : MonoBehaviour
 
     public bool pouredFluid = false;
 
+    private void Start()
+    {
+        AudioManager.audioManager.PlaySound(SoundTypes.MusicLoop);
+
+    }
+
     void Update()
     {
         GameWin();

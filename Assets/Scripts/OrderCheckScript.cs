@@ -75,6 +75,8 @@ public class OrderCheckScript : MonoBehaviour
         Debug.Log("~~~ ORDER DELIVERD SUCCSEFULLY ~~~");
         Debug.Log("Order Bubble To String : " + orderBubble.ToString());
         glassTopGO.SetActive(true);
+        AudioManager.audioManager.PlaySound(SoundTypes.WinSound);
+
 
         switch (orderBubble)
         {
@@ -155,6 +157,8 @@ public class OrderCheckScript : MonoBehaviour
     private IEnumerator IncorrectSequance()
     {
         incorrectGO.SetActive(true);
+        AudioManager.audioManager.PlaySound(SoundTypes.LoseSound);
+
         shakeDropHolderGO.gameObject.SetActive(false);
 
         foreach (Transform child in shakeDropHolderGO)

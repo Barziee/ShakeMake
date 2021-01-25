@@ -42,9 +42,6 @@ public class OrderScript : MonoBehaviour
     private List<GameObject> currentList;
     private GameObject currentFruitToDraw;
 
-    public AudioSource bloop;
-    public AudioManager audioManager;
-
 
     void Start()
     {
@@ -76,9 +73,8 @@ public class OrderScript : MonoBehaviour
             SetOrder(currentList);
 
             orderBubbleList[x].gameObject.SetActive(true);
+            AudioManager.audioManager.PlaySound(SoundTypes.OrderSpawn);
 
-            bloop.clip = audioManager.audioClips[2];
-            bloop.Play();
 
             switch (x)
             {

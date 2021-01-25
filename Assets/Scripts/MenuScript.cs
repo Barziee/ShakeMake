@@ -23,8 +23,7 @@ public class MenuScript : MonoBehaviour
 
     public void PlayGame()
     {
-        tap.clip = audioManager.audioClips[0];
-        tap.Play();
+        AudioManager.audioManager.PlaySound(SoundTypes.FruitTap);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -33,26 +32,25 @@ public class MenuScript : MonoBehaviour
     {
         yesButton.color = new Color32(224, 92, 147, 255);
         noButton.color = new Color32(60, 60, 60, 255);
-        music.clip = audioManager.audioClips[4];
-        music.Play();
+        AudioManager.audioManager.PlaySound(SoundTypes.MusicLoop);
     }
 
     public void DisableMusic()
     {
+        AudioManager.audioManager.StopSound(SoundTypes.MusicLoop);
         noButton.color = new Color32(224, 92, 147, 255);
         yesButton.color = new Color32(60, 60, 60, 255);
-        music.clip = audioManager.audioClips[4];
-        music.Stop();
+        
     }
 
     public void Options()
     {
-        tap.clip = audioManager.audioClips[0];
-        tap.Play();   
+        AudioManager.audioManager.PlaySound(SoundTypes.FruitTap);
     }
 
     public void QuitGame()
     {
+        AudioManager.audioManager.PlaySound(SoundTypes.FruitTap);
         Application.Quit();
     }
 
