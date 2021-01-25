@@ -19,6 +19,13 @@ public class OrderCheckScript : MonoBehaviour
 
     int countCorrect = 0;
 
+    public AudioManager audioManager;
+    private AudioSource niceSound;
+    private AudioSource failSound;
+
+
+
+
     public void CheckOrder(List<GameObject> list, int orderBubble)
     {
         for (int x = 0; x < list.Count; x++)
@@ -89,7 +96,7 @@ public class OrderCheckScript : MonoBehaviour
         }
 
         correctGO.SetActive(true);
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(2f);
         correctGO.SetActive(false);
         yield return new WaitForSeconds(3f);
         shakeDropHolderGO.gameObject.SetActive(false);
@@ -148,7 +155,6 @@ public class OrderCheckScript : MonoBehaviour
     private IEnumerator IncorrectSequance()
     {
         incorrectGO.SetActive(true);
-
         shakeDropHolderGO.gameObject.SetActive(false);
 
         foreach (Transform child in shakeDropHolderGO)
@@ -164,7 +170,7 @@ public class OrderCheckScript : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         incorrectGO.SetActive(false);
 
