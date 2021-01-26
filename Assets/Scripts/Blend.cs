@@ -16,18 +16,39 @@ public class Blend : MonoBehaviour
     public List<Transform> fruitListBlend = new List<Transform>();
 
     public ParticleSystem dust;
-    private Animator blendButton;
+    public float buttonPressSpeed;
+
+    private Vector3 targetPos;
+    private Vector3 startPos;
 
     private void Start()
     {
-        blendButton = GetComponent<Animator>();
+        startPos = new Vector3(-3.7f, 3.2f, -3.37f);
+        targetPos = new Vector3(-3.6f, 2.85f, -3.37f);
     }
 
     private void OnMouseDown()
     {
         StartCoroutine(StartBlenderLoop());
-        blendButton.enabled = true;
+        StartCoroutine(BlendButtonLerp());
+    }
 
+    private IEnumerator BlendButtonLerp()
+    {
+        var timeSinceStarted = 0.0f;
+
+        while (true)
+        {
+            timeSinceStarted += Time.deltaTime;
+
+            transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, timeSinceStarted * buttonPressSpeed);
+
+            if (transform.position == targetPos)
+            {
+                yield break;
+            }
+            yield return null;
+        }
     }
 
     private IEnumerator StartBlenderLoop()
@@ -51,7 +72,6 @@ public class Blend : MonoBehaviour
         Debug.Log("BLENDDDDDD");
 
         yield return new WaitForSeconds(4f);
-        blendButton.enabled = false;
 
         foreach (Transform child in fruitSpawnGO) 
         {
@@ -63,10 +83,30 @@ public class Blend : MonoBehaviour
 
         yield return new WaitForSeconds(0.6f);
 
+        StartCoroutine(BlendButtonLerpUp());
+
         blenderTopGO.SetActive(false);
 
         blenderAnimator.SetTrigger("Pour");
 
+    }
+
+    private IEnumerator BlendButtonLerpUp()
+    {
+        var timeSinceStarted = 0.0f;
+
+        while (true)
+        {
+            timeSinceStarted += Time.deltaTime;
+
+            transform.localPosition = Vector3.Lerp(transform.localPosition, startPos, timeSinceStarted * buttonPressSpeed);
+
+            if (transform.position == startPos)
+            {
+                yield break;
+            }
+            yield return null;
+        }
     }
 
     void CreateDust()
