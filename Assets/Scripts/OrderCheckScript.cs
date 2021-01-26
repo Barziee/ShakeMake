@@ -17,14 +17,16 @@ public class OrderCheckScript : MonoBehaviour
     public Sprite[] tubeFillArray = new Sprite[4];
     public Image tubeImage;
 
-    int countCorrect = 0;
+    public int countCorrect = 0;
 
     public AudioManager audioManager;
     private AudioSource niceSound;
     private AudioSource failSound;
 
-
-
+    private void Start()
+    {
+        AudioManager.audioManager.PlaySound(SoundTypes.MusicLoop);
+    }
 
     public void CheckOrder(List<GameObject> list, int orderBubble)
     {
@@ -58,6 +60,7 @@ public class OrderCheckScript : MonoBehaviour
 
         else if (countCorrect <= 3)
         {
+
             Debug.Log("~~~ ORDER WAS UNSECCESFULL ~~~");
             GameManager.numOfCorrectOrdersDelivered++;
         }

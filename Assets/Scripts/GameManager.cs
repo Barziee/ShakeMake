@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.audioManager.PlaySound(SoundTypes.MusicLoop);
 
     }
 
@@ -31,6 +30,7 @@ public class GameManager : MonoBehaviour
         if (numOfGameOrdersFinished == 3)
         {
             partSysWin.Play();
+            // AudioManager.audioManager.PlaySound(SoundTypes.GameWin);
             youWinGo.SetActive(true);
         } 
     }

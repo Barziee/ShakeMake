@@ -1667,6 +1667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d8b40471e1099448549bd1aff9da98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gmSC: {fileID: 303274329}
+  ocSC: {fileID: 1937085930}
+  blendSC: {fileID: 87330129}
 --- !u!65 &238197596
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4431,13 +4434,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28ff66ce85bdee4c8ba138286049c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
-  minY: 0
-  maxY: 0
-  buffer: 0
-  speed: 0
-  camWidth: 0
 --- !u!1001 &733363423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13892,13 +13888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28ff66ce85bdee4c8ba138286049c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
-  minY: 0
-  maxY: 0
-  buffer: 0
-  speed: 0
-  camWidth: 0
 --- !u!1 &1666506671
 GameObject:
   m_ObjectHideFlags: 0
@@ -14318,8 +14307,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -771, y: -43}
-  m_SizeDelta: {x: 219.42432, y: 554.8279}
+  m_AnchoredPosition: {x: -829, y: -81}
+  m_SizeDelta: {x: 183.7312, y: 479.6952}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1817090119
 MonoBehaviour:
@@ -15074,7 +15063,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.91
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15298,6 +15287,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5e6f5b4405130134ea661364959ec67d, type: 3}
   - {fileID: 21300000, guid: ad382597acf0bee48b3b3735ac141fd4, type: 3}
   tubeImage: {fileID: 1817090119}
+  countCorrect: 0
   audioManager: {fileID: 1927785864}
 --- !u!1 &1944696487
 GameObject:
@@ -15409,13 +15399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d28ff66ce85bdee4c8ba138286049c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 0
-  maxSpeed: 0
-  minY: 0
-  maxY: 0
-  buffer: 0
-  speed: 0
-  camWidth: 0
 --- !u!1 &1977759278
 GameObject:
   m_ObjectHideFlags: 0
@@ -16672,6 +16655,10 @@ PrefabInstance:
       propertyPath: orderSC
       value: 
       objectReference: {fileID: 1937085928}
+    - target: {fileID: 684287318, guid: 95393a00122064d4bac7fede06f71f2c, type: 3}
+      propertyPath: gmSC
+      value: 
+      objectReference: {fileID: 303274329}
     - target: {fileID: 899560204, guid: 95393a00122064d4bac7fede06f71f2c, type: 3}
       propertyPath: m_Size.z
       value: 0.00371878
@@ -18894,7 +18881,7 @@ PrefabInstance:
     - target: {fileID: 6665882990045512902, guid: bdbf06ee2dd4b2849b5cccee8d0bb198,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.37
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 6665882990045512902, guid: bdbf06ee2dd4b2849b5cccee8d0bb198,
         type: 3}

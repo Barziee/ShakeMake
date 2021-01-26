@@ -7,6 +7,7 @@ public class GlassScript : MonoBehaviour
     [Header("Public Cached References")]
     public OrderCheckScript orderCheckSC;
     public OrderScript orderSC;
+    public GameManager gmSC;
 
     private List<GameObject> currentListCheck;
 
@@ -18,6 +19,9 @@ public class GlassScript : MonoBehaviour
 
             orderCheckSC.CheckOrder(currentListCheck, i);
 
+            gmSC.pouredFluid = false;
+
+            gmSC.fruitCounter = 0;
         }
 
     }
