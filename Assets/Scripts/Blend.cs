@@ -16,11 +16,17 @@ public class Blend : MonoBehaviour
     public List<Transform> fruitListBlend = new List<Transform>();
 
     public ParticleSystem dust;
+    private Animator blendButton;
 
+    private void Start()
+    {
+        blendButton = GetComponent<Animator>();
+    }
 
     private void OnMouseDown()
     {
         StartCoroutine(StartBlenderLoop());
+        blendButton.enabled = true;
 
     }
 
@@ -45,6 +51,7 @@ public class Blend : MonoBehaviour
         Debug.Log("BLENDDDDDD");
 
         yield return new WaitForSeconds(4f);
+        blendButton.enabled = false;
 
         foreach (Transform child in fruitSpawnGO) 
         {

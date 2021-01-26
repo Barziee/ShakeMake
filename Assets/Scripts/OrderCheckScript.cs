@@ -23,10 +23,6 @@ public class OrderCheckScript : MonoBehaviour
     private AudioSource niceSound;
     private AudioSource failSound;
 
-    private void Start()
-    {
-        AudioManager.audioManager.PlaySound(SoundTypes.MusicLoop);
-    }
 
     public void CheckOrder(List<GameObject> list, int orderBubble)
     {

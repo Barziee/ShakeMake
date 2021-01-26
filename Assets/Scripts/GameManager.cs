@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
 
     public bool pouredFluid = false;
 
-    private void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -30,7 +26,7 @@ public class GameManager : MonoBehaviour
         if (numOfGameOrdersFinished == 3)
         {
             partSysWin.Play();
-            // AudioManager.audioManager.PlaySound(SoundTypes.GameWin);
+            AudioManager.audioManager.PlaySound(SoundTypes.GameWin);
             youWinGo.SetActive(true);
         } 
     }
