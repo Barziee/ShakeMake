@@ -99,7 +99,7 @@ public class OrderCheckScript : MonoBehaviour
         correctGO.SetActive(true);
         yield return new WaitForSeconds(2f);
         correctGO.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         shakeDropHolderGO.gameObject.SetActive(false);
 
         foreach (Transform child in shakeDropHolderGO)
