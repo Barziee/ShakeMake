@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject youWinGo;
 
+    public Animator youwinAnime;
+
     [Header("Game State Managers")]
     public static int numOfCorrectOrdersDelivered;
     public static int numOfGameOrdersFinished;
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
             partSysWin.Play();
             AudioManager.audioManager.PlaySound(SoundTypes.GameWin);
             youWinGo.SetActive(true);
+
+            youwinAnime.SetTrigger("youwinin");
         } 
     }
 

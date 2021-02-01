@@ -6,9 +6,6 @@ public class SkyManager : MonoBehaviour
 {
     public Material[] skyMatsArray = new Material[3];
 
-    
-
-
     void Start()
     {
         StartCoroutine(SkyLerp());
@@ -20,10 +17,10 @@ public class SkyManager : MonoBehaviour
     {
         RenderSettings.skybox = skyMatsArray[0];
         Debug.Log("MORNING");
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(50f);
         RenderSettings.skybox = skyMatsArray[1];
         Debug.Log("NOON");
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(30f);
         RenderSettings.skybox = skyMatsArray[2];
         Debug.Log("EVENING");
     }

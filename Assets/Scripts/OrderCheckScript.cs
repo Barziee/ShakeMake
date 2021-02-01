@@ -8,7 +8,9 @@ public class OrderCheckScript : MonoBehaviour
     [Header("Public Cached References")]
     public Transform shakeDropHolderGO;
     public Transform fruitSpawnGO;
+    public Animator correctAnimator;
     public GameObject correctGO;
+    public Animator incorrectAnimator;
     public GameObject incorrectGO;
     public GameObject glassTopGO;
     public OrderScript orderSC;
@@ -22,6 +24,13 @@ public class OrderCheckScript : MonoBehaviour
     public AudioManager audioManager;
     private AudioSource niceSound;
     private AudioSource failSound;
+
+    private Vector3 startPosFail;
+
+    private void Start()
+    {
+        startPosFail = new Vector3(0f, 11.68f, 14f);
+    }
 
 
     public void CheckOrder(List<GameObject> list, int orderBubble)
@@ -96,10 +105,15 @@ public class OrderCheckScript : MonoBehaviour
 
         }
 
+        correctGO.transform.position = startPosFail;
+
         correctGO.SetActive(true);
-        yield return new WaitForSeconds(2f);
+
+        correctAnimator.SetTrigger("winin");
+
+        yield return new WaitForSeconds(3.5f);
         correctGO.SetActive(false);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.5f);
         shakeDropHolderGO.gameObject.SetActive(false);
 
         foreach (Transform child in shakeDropHolderGO)
@@ -155,7 +169,12 @@ public class OrderCheckScript : MonoBehaviour
 
     private IEnumerator IncorrectSequance()
     {
+        incorrectGO.transform.position = startPosFail;
+
         incorrectGO.SetActive(true);
+
+        incorrectAnimator.SetTrigger("failin");
+
         AudioManager.audioManager.PlaySound(SoundTypes.LoseSound);
 
         shakeDropHolderGO.gameObject.SetActive(false);
@@ -173,7 +192,7 @@ public class OrderCheckScript : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
 
         incorrectGO.SetActive(false);
 

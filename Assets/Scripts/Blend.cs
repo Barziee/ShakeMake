@@ -24,7 +24,7 @@ public class Blend : MonoBehaviour
     private void Start()
     {
         startPos = new Vector3(-3.7f, 3.2f, -3.37f);
-        targetPos = new Vector3(-3.6f, 2.85f, -3.37f);
+        targetPos = new Vector3(-3.7f, 2.85f, -3.37f);
     }
 
     private void OnMouseDown()
