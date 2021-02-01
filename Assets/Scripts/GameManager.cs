@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Cached References")]
-    public ParticleSystem partSysWin;
+    public ParticleSystem partSysWin1;
+    public ParticleSystem partSysWin2;
+    public AudioSource winSound;
+
 
     public GameObject youWinGo;
 
@@ -17,22 +21,30 @@ public class GameManager : MonoBehaviour
 
     public bool pouredFluid = false;
 
+    public static bool winCondition = false;
+
+
+
 
     void Update()
     {
-        GameWin();
+        if (numOfGameOrdersFinished == 3 && winCondition)
+        {
+            winCondition = false;
+            StartCoroutine(GameWin());
+        }
     }
 
-    private void GameWin()
-    {
-        if (numOfGameOrdersFinished == 3)
-        {
-            partSysWin.Play();
-            AudioManager.audioManager.PlaySound(SoundTypes.GameWin);
-            youWinGo.SetActive(true);
 
+    private IEnumerator GameWin()
+    {
+            yield return new WaitForEndOfFrame();
+            youWinGo.SetActive(true);
+            winSound.Play();
+            partSysWin1.Play();
+            partSysWin2.Play();
             youwinAnime.SetTrigger("youwinin");
-        } 
+        yield return new WaitForSeconds(0.2f);
     }
 
 

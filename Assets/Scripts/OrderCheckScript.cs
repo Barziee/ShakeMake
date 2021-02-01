@@ -18,6 +18,7 @@ public class OrderCheckScript : MonoBehaviour
     public Animator glassAnimator;
     public Sprite[] tubeFillArray = new Sprite[4];
     public Image tubeImage;
+    public ParticleSystem niceParticle;
 
     public int countCorrect = 0;
 
@@ -84,6 +85,7 @@ public class OrderCheckScript : MonoBehaviour
         Debug.Log("Order Bubble To String : " + orderBubble.ToString());
         glassTopGO.SetActive(true);
         AudioManager.audioManager.PlaySound(SoundTypes.WinSound);
+        niceParticle.Play();
 
 
         switch (orderBubble)
@@ -158,6 +160,7 @@ public class OrderCheckScript : MonoBehaviour
         {
             //tubeFillArray[2].SetActive(true);
             tubeImage.sprite = tubeFillArray[3];
+            GameManager.winCondition = true;
 
         }
 

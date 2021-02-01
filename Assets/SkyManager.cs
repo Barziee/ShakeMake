@@ -17,7 +17,7 @@ public class SkyManager : MonoBehaviour
     {
         RenderSettings.skybox = skyMatsArray[0];
         Debug.Log("MORNING");
-        yield return new WaitForSeconds(50f);
+        yield return new WaitForSeconds(60f);
         RenderSettings.skybox = skyMatsArray[1];
         Debug.Log("NOON");
         yield return new WaitForSeconds(30f);
